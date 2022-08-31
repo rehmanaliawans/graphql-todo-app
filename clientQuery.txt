@@ -1,0 +1,59 @@
+--------------------------
+query getAllUsers {
+  users {
+    firstName
+    _id
+    lastName
+    email
+  }
+}
+--------------------------
+get all user with all its specific quotes
+query getAllUsers {
+  users {
+    firstName
+    _id
+    lastName
+    email
+    quotes {
+      name
+      by
+    }
+  }
+}
+--------------------------
+query getAllQuotes {
+  quotes {
+    name
+    by
+  }
+}
+--------------------------
+query getUserById {
+  user(_id:"12345"){
+    _id
+    firstName
+    lastName
+    email
+    quotes{
+      name
+      by
+    }
+  }
+}
+--------------------------
+query quotesById {
+  quotesById (by:"12345"){
+    name
+    by
+  }
+}
+----------- ---------------
+mutation createUser($userNew:UserInput!){
+  user:signUpUser(userNew:$userNew){
+    _id
+    firstName
+    lastName
+    email
+  }
+}
