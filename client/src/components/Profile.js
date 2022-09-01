@@ -19,10 +19,6 @@ const Profile = () => {
     console.log("error ", error.message);
   }
 
-  if (data) {
-    console.log(data.user);
-  }
-  console.log("dasd", data);
   return (
     <div className="container my-container">
       <div className="center-align">

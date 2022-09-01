@@ -26,7 +26,6 @@ const SignUp = () => {
         userNew: formData,
       },
     });
-    console.log(formData);
   };
   return (
     <div className="container my-container">

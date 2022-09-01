@@ -22,9 +22,7 @@ const CreateQuote = () => {
         <h1>Laoding</h1>
       </div>
     );
-  if (data) {
-    console.log("data");
-  }
+  
   return (
     <div className="container my-container">
       {error && <div className="red card-panel">{error.message}</div>}

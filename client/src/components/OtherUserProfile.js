@@ -4,7 +4,6 @@ import { GET_MY_PROFILE, GET_USER_BY_ID } from "../gqloperations/queries";
 import { useParams } from "react-router-dom";
 const OtherProfile = () => {
   const { userId } = useParams();
-  console.log(userId);
   const { data, loading, error } = useQuery(GET_USER_BY_ID, {
     variables: {
       userId: userId,
@@ -21,10 +20,6 @@ const OtherProfile = () => {
     console.log("error ", error.message);
   }
 
-  if (data) {
-    console.log(data.user);
-  }
-  console.log("dasd", data);
   return (
     <div className="container my-container">
       <div className="center-align">
