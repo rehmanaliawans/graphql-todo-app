@@ -8,10 +8,12 @@ const {
   ApolloServerPluginLandingPageGraphQLPlayground,
 } = require("apollo-server-core");
 const jwt = require("jsonwebtoken");
-
+const dotenv = require("dotenv");
 //Database Connection
-const URL =
-  "mongodb+srv://book-store:(12BookStore@cluster0.hyjvbgq.mongodb.net/?retryWrites=true&w=majority";
+dotenv.config({
+  path: "./config.env",
+});
+const URL = process.env.MONOG_URL;
 
 //MiddleWare
 const context = ({ req }) => {
