@@ -1,14 +1,16 @@
 import { useQuery } from "@apollo/client";
 import React from "react";
-import { useNavigate } from "react-router-dom";
-import { GET_MY_PROFILE } from "../gqloperations/queries";
+import { GET_MY_PROFILE, GET_USER_BY_ID } from "../gqloperations/queries";
+import { useParams } from "react-router-dom";
+const OtherProfile = () => {
+  const { userId } = useParams();
+  console.log(userId);
+  const { data, loading, error } = useQuery(GET_USER_BY_ID, {
+    variables: {
+      userId: userId,
+    },
+  });
 
-const Profile = () => {
-  const navigate = useNavigate();
-  const { data, loading, error } = useQuery(GET_MY_PROFILE);
-  if (!localStorage.getItem("token")) {
-    navigate("/login");
-  }
   if (loading)
     return (
       <div className="container my-container">
@@ -49,4 +51,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default OtherProfile;

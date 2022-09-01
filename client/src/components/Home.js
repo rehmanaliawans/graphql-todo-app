@@ -1,5 +1,6 @@
 import { useQuery } from "@apollo/client";
 import React from "react";
+import { Link } from "react-router-dom";
 import { GET_ALL_QUOTES } from "../gqloperations/queries";
 
 const Home = () => {
@@ -26,7 +27,9 @@ const Home = () => {
       {data.quotes.map((quote, index) => (
         <blockquote key={index}>
           <h6>{quote.name}</h6>
-          <p className="right-align">{quote.by.firstName} </p>
+          <Link to={`/profile/${quote.by._id}`}>
+            <p className="right-align">{quote.by.firstName} </p>
+          </Link>
         </blockquote>
       ))}
     </div>
